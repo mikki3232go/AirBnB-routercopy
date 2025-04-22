@@ -2,18 +2,27 @@ import "./styles.css";
 import { Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
 import Card from "./components/Card";
-import NoPage from "./components/NoPage.jsx";
+import NoPage from "./components/NoPage";
 import CardList from "./CardList";
-import HomeAxios from "./HomeAxios.jsx";
-import DetailTab from "./components/DetailTab.jsx";
-import React, { useCallback, useState } from "react";
-export let Context1 = React.createContext();
+import HomeAxios from "./HomeAxios";
+import DetailTab from "./components/DetailTab";
+import React, { useCallback, useState, createContext } from "react";
+
+interface ThemeContextType {
+  theme: string;
+  toggleTheme: () => void;
+}
+
+export const Context1 = createContext<ThemeContextType | null>(null);
+
 export default function App() {
-  const [users, setUsers] = useState(["user1", "user2", "user3"]);
-  const [theme, setTheme] = useState("light");
+  const [users, setUsers] = useState<string[]>(["user1", "user2", "user3"]);
+  const [theme, setTheme] = useState<string>("light");
+  
   const toggleTheme = useCallback(() => {
-    setTheme(theme == "light" ? "dark" : "light");
+    setTheme(theme === "light" ? "dark" : "light");
   }, [theme]);
+
   return (
     <div className="App">
       <Routes>
@@ -30,7 +39,7 @@ export default function App() {
           }
         />
         <Route path="*" element={<NoPage />} />
-      </Routes>{" "}
+      </Routes>
     </div>
   );
-}
+} 

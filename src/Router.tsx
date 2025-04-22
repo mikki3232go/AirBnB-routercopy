@@ -1,8 +1,7 @@
 import "./styles.css";
-import roomDetails from "./Rooms.js";
 import Header from "./components/Header";
-import Card from "./components/Card";
 import { Link } from "react-router-dom";
+
 export default function Router() {
   return (
     <nav>
@@ -15,4 +14,4 @@ export default function Router() {
       </div>
     </nav>
   );
-}
+} 

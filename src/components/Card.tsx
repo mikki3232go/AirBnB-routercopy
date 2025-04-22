@@ -1,7 +1,17 @@
 import React from "react";
 import "../styles.css";
 
-export default function Card(props) {
+interface CardProps {
+  title: string;
+  location: string;
+  guest: string;
+  rating: string;
+  numberofrating: string;
+  price: string;
+  image: string;
+}
+
+export default function Card(props: CardProps) {
   return (
     <div className="container">
       <div className="box image">
@@ -22,5 +32,4 @@ export default function Card(props) {
       </div>
     </div>
   );
-}
-
+} 

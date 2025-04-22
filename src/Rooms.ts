@@ -1,4 +1,15 @@
-const Rooms = [
+interface Room {
+  key: number;
+  name: string;
+  location: string;
+  totalGuest: string;
+  rating: string;
+  numberOfRating: string;
+  price: string;
+  image: string;
+}
+
+const Rooms: Room[] = [
   {
     key: 1,
     name: "OLIVE Serviced 아파트",
@@ -34,4 +45,4 @@ const Rooms = [
   },
 ];
 
-export default Rooms;
+export default Rooms; 

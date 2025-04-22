@@ -1,10 +1,22 @@
-import axios from "axios"; //2. axios import하기
+import axios from "axios";
+
+interface Room {
+  key: number;
+  name: string;
+  location: string;
+  totalGuest: string;
+  rating: string;
+  numberOfRating: string;
+  price: string;
+  image: string;
+}
+
 export default function AxiosTest() {
   return (
     <button
       onClick={() => {
         axios
-          .get("https://mikki32sw.github.io/airanb/data.json")
+          .get<Room[]>("https://mikki32sw.github.io/airanb/data.json")
           .then((result) => {
             console.log(result.data);
           })
@@ -16,4 +28,4 @@ export default function AxiosTest() {
       버튼
     </button>
   );
-}
+} 
