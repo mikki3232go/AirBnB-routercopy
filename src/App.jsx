@@ -1,24 +1,36 @@
 import "./styles.css";
-import roomDetails from "./Rooms.js";
+import { Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
 import Card from "./components/Card";
+import NoPage from "./components/NoPage.jsx";
+import CardList from "./CardList";
+import HomeAxios from "./HomeAxios.jsx";
+import DetailTab from "./components/DetailTab.jsx";
+import React, { useCallback, useState } from "react";
+export let Context1 = React.createContext();
 export default function App() {
+  const [users, setUsers] = useState(["user1", "user2", "user3"]);
+  const [theme, setTheme] = useState("light");
+  const toggleTheme = useCallback(() => {
+    setTheme(theme == "light" ? "dark" : "light");
+  }, [theme]);
   return (
     <div className="App">
-      <Header />
-      <h2>Your result is here!</h2>
-      {roomDetails.map((item) => (
-        <Card
-          key={item.key}
-          title={item.name}
-          location={item.location}
-          guest={item.totalGuest}
-          rating={item.rating}
-          numberofrating={item.numberOfRating}
-          price={item.price}
-          image={item.image}
+      <Routes>
+        <Route path="/" element={<HomeAxios />} />
+        <Route path="/header" element={<Header />} />
+        <Route path="/card" element={<Card />} />
+        <Route path="/cardList" element={<CardList />} />
+        <Route
+          path="/detail/:id"
+          element={
+            <Context1.Provider value={{ theme, toggleTheme }}>
+              <DetailTab />
+            </Context1.Provider>
+          }
         />
-      ))}
+        <Route path="*" element={<NoPage />} />
+      </Routes>{" "}
     </div>
   );
 }

@@ -1,0 +1,32 @@
+[
+  {
+    "key": 4,
+    "name": "OLIVE Serviced Apt Room with Kitchen",
+    "location": "Salt Lake",
+    "totalGuest": "4",
+    "rating": "4.76",
+    "numberOfRating": "5",
+    "price": "30,498",
+    "image": "https://mikki32sw.github.io/airanb/room4.PNG"
+  },
+  {
+    "key": 5,
+    "name": "Oyo Rooms, Perfect RoomStay",
+    "location": "Kolkata",
+    "totalGuest": "7",
+    "rating": "4.96",
+    "numberOfRating": "35",
+    "price": "60,498",
+    "image": "https://mikki32sw.github.io/airanb/room5.PNG"
+  },
+  {
+    "key": 6,
+    "name": "Secured Home Manzile",
+    "location": "Howrah",
+    "totalGuest": "34",
+    "rating": "3.76",
+    "numberOfRating": "25",
+    "price": "20,498",
+    "image": "https://mikki32sw.github.io/airanb/room6.PNG"
+  }
+]

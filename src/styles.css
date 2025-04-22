@@ -21,7 +21,7 @@ hr {
 .header {
   width: 100%;
   box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.28);
-  margin-bottom: 40px;
+  margin-bottom: 8px;
 }
 .logo {
   width: 170px;
@@ -49,9 +49,11 @@ hr {
 .image {
   width: 300px;
   overflow: hidden;
+  height: 200px
 }
 .boximage {
   width: 100%;
+  height:100%;
   border-radius: 20px;
 }
 .title {
@@ -86,3 +88,35 @@ hr {
   font-weight: 200;
   font-size: 22px;
 }
+
+#wrapper{   
+  display:grid;
+ 
+  /* grid-template-columns:repeat(auto-fill, minmax(320px, 1fr)); /*2-2 행열개수*/
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap :1rem;
+}
+.card {
+  background-color:#fff;
+  box-shadow:0px 1px 5px #222;
+  border-radius:20px;
+}
+.topnav {
+  overflow: hidden;
+  background-color: none;
+}
+
+.topnav :Link {
+  float: left;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav :Link:hover {
+  background-color: #ddd;
+  color: black;
+}
+ 
