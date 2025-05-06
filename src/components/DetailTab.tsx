@@ -2,21 +2,12 @@ import React, { useContext } from "react";
 import "../styles.css";
 import { Context1 } from "../App";
 import { useParams } from "react-router-dom";
-import Rooms from "../Rooms";
+import Rooms, { Room } from "../Rooms";
 
-interface Room {
-  key: number;
-  name: string;
-  location: string;
-  totalGuest: string;
-  rating: string;
-  numberOfRating: string;
-  price: string;
-  image: string;
-}
+
 
 export default function DetailTab() {
-  const { theme, toggleTheme } = useContext(Context1)!;
+  const { theme, toggleTheme } = useContext(Context1);
   const { id } = useParams<{ id: string }>();
   const room = Rooms.find((room) => room.key === Number(id));
 

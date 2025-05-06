@@ -7,17 +7,22 @@ import CardList from "./CardList";
 import HomeAxios from "./HomeAxios";
 import DetailTab from "./components/DetailTab";
 import React, { useCallback, useState, createContext } from "react";
+import Rooms from "./Rooms";
+
+type Theme = "light" | "dark";
 
 interface ThemeContextType {
-  theme: string;
+  theme: Theme;
   toggleTheme: () => void;
 }
 
-export const Context1 = createContext<ThemeContextType | null>(null);
+export const Context1 = createContext<ThemeContextType>({
+  theme: "light",
+  toggleTheme: () => {},
+});
 
 export default function App() {
-  const [users, setUsers] = useState<string[]>(["user1", "user2", "user3"]);
-  const [theme, setTheme] = useState<string>("light");
+  const [theme, setTheme] = useState<Theme>("light");
   
   const toggleTheme = useCallback(() => {
     setTheme(theme === "light" ? "dark" : "light");
@@ -28,7 +33,7 @@ export default function App() {
       <Routes>
         <Route path="/" element={<HomeAxios />} />
         <Route path="/header" element={<Header />} />
-        <Route path="/card" element={<Card />} />
+        <Route path="/card" element={<Card item={Rooms[0]} />} />
         <Route path="/cardList" element={<CardList />} />
         <Route
           path="/detail/:id"

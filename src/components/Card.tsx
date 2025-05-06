@@ -1,35 +1,41 @@
-import React from "react";
-import "../styles.css";
 
-interface CardProps {
-  title: string;
+import '../styles.css';
+import Rooms, { Room } from '../Rooms';
+
+interface Room {
+  key: number;
+  name: string;
   location: string;
-  guest: string;
+  totalGuest: string;
   rating: string;
-  numberofrating: string;
+  numberOfRating: string;
   price: string;
   image: string;
 }
 
-export default function Card(props: CardProps) {
+interface CardProps {
+  item?: Room;
+}
+
+export default function Card({ item = Rooms[0] }: CardProps) {
   return (
     <div className="container">
       <div className="box image">
-        <img src={props.image} className="boximage" alt="Room" />
+        <img src={item.image} className="boximage" alt={item.name} />
       </div>
       <div className="box">
-        <div className="location">{props.location}에 위치</div>
-        <div className="title">{props.title}</div>
+        <div className="location">{item.location}에 위치</div>
+        <div className="title">{item.name}</div>
         <hr />
-        <div className="guest">최대인원{props.guest} 명</div>
+        <div className="guest">최대인원{item.totalGuest} 명</div>
         <div className="rating">
-          평점: {props.rating}{" "}
-          <span className="visits">({props.numberofrating})</span>
+          평점: {item.rating}{' '}
+          <span className="visits">({item.numberOfRating})</span>
         </div>
         <div className="price">
-          {props.price} 원<span className="month">/ month</span>
+          {item.price} 원<span className="month">/ month</span>
         </div>
       </div>
     </div>
   );
-} 
+}

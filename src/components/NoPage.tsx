@@ -1,5 +1,15 @@
+ 
+import RouterTest from "./RouterTest";
+import { useNavigate } from "react-router-dom";
 const NoPage = () => {
-  return <h1>404</h1>;
+  const navigate = useNavigate();
+  return (
+    <div>
+       
+      <h1> No Page Not found 404</h1>
+       
+    </div>
+  );
 };
+export default NoPage;
 
-export default NoPage; 

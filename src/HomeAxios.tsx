@@ -1,15 +1,10 @@
-import Rooms from "./Rooms";
+import Rooms, { Room } from "./Rooms";
 import Router from "./Router";
 import axios from "axios";
 import { useState } from "react";
 import "./styles.css";
 import { useNavigate } from "react-router-dom";
 
-interface Room {
-  key: number;
-  image: string;
-  name: string;
-}
 
 export default function HomeAxios() {
   const navigate = useNavigate();
@@ -38,16 +33,16 @@ export default function HomeAxios() {
             .get<Room[]>("https://mikki32sw.github.io/airanb/data.json")
             .then((result) => {
               console.log(result.data);
-              const copyRooms = [...rooms, ...result.data];
-              console.log(copyRooms);
-              setRooms(copyRooms);
+              // const copyRooms = [...rooms, ...result.data];
+              // console.log(copyRooms);
+              setRooms([...rooms, ...result.data]);
             })
             .catch(() => {
               console.log("get 실패함");
             });
         }}
       >
-        더보기
+        더보기 배열 바로 넣기
       </button>
     </>
   );
