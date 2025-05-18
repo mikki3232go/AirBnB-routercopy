@@ -10,6 +10,7 @@ export default function Router() {
         <Link to="/">Home</Link>
         <Link to="/card">Card</Link>
         <Link to="/cardList">CardList</Link>
+        <Link to="/board">Board</Link>
         <Link to="/about">about</Link>
       </div>
     </nav>

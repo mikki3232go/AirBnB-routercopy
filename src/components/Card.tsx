@@ -2,22 +2,11 @@
 import '../styles.css';
 import Rooms, { Room } from '../Rooms';
 
-interface Room {
-  key: number;
-  name: string;
-  location: string;
-  totalGuest: string;
-  rating: string;
-  numberOfRating: string;
-  price: string;
-  image: string;
-}
-
-interface CardProps {
+interface CardProps { //1. 선택적인 props 정의
   item?: Room;
 }
 
-export default function Card({ item = Rooms[0] }: CardProps) {
+export default function Card({ item = Rooms[0] }: CardProps) { //2. 기본 props지정
   return (
     <div className="container">
       <div className="box image">

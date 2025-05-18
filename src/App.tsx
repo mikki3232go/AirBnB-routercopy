@@ -6,6 +6,7 @@ import NoPage from "./components/NoPage";
 import CardList from "./CardList";
 import HomeAxios from "./HomeAxios";
 import DetailTab from "./components/DetailTab";
+import Board from "./components/Board";
 import React, { useCallback, useState, createContext } from "react";
 import Rooms from "./Rooms";
 
@@ -35,6 +36,7 @@ export default function App() {
         <Route path="/header" element={<Header />} />
         <Route path="/card" element={<Card item={Rooms[0]} />} />
         <Route path="/cardList" element={<CardList />} />
+        <Route path="/board" element={<Board />} />
         <Route
           path="/detail/:id"
           element={
